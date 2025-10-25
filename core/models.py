@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 class Evento(models.Model):
     titulo = models.CharField(max_length=35)
+    descripcion = models.TextField(default="")
     fecha = models.DateTimeField()
     lugar = models.CharField(max_length=35)
     imagenPrincipal = models.URLField(max_length=300, default="")
