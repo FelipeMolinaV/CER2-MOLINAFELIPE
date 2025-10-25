@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .models import Evento, ImagenEvento
 
 def principal(request):
@@ -10,10 +11,37 @@ def principal(request):
     })
 
 def informacion_evento(request, id):
+
+    estado_registro = False
+    if request.user.is_authenticated:
+        id_usuario = request.user.id
+        if Evento.objects.get(id=id).registrados.filter(id=id_usuario).exists():
+            estado_registro = True
+
     return render(request, 'core/informacion_evento.html', {
         'evento': Evento.objects.get(id=id),
-        'cupos': (Evento.objects.get(id=id).cantidad - Evento.objects.get(id=id).registrados.all().count())
+        'cupos': (Evento.objects.get(id=id).cantidad - Evento.objects.get(id=id).registrados.all().count()),
+        'estado_registro': estado_registro
     })
+
+def iniciar_sesion(request):
+    if request.method == "POST":
+        nombre_usuario = request.POST['nombre']
+        contraseña = request.POST['contraseña']
+        usuario = authenticate(username=nombre_usuario, password=contraseña)
+        if usuario is not None:
+            login(request, usuario)
+            return redirect('principal')
+        else:
+            return render(request, 'core/iniciar_sesion.html', {
+                'error':True,
+            })
+    else:
+        return render(request, 'core/iniciar_sesion.html')
+    
+def cerrar_sesion(request):
+    logout(request)
+    return redirect('principal')
 
 def crear_cuenta(request):
     if request.method == "POST":
@@ -29,6 +57,10 @@ def crear_cuenta(request):
         if usuario is not None:
             login(request, usuario)
             return redirect('principal')
-
     else:  
         return render(request, 'core/crear_cuenta.html', {})
+    
+def registrar_evento(request, id):
+    evento = Evento.objects.get(id=id)
+    evento.registrados.add(request.user)
+    return redirect('informacion_evento', id=id)

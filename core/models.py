@@ -9,7 +9,7 @@ class Evento(models.Model):
     imagenPrincipal = models.URLField(max_length=300, default="")
     valor = models.PositiveIntegerField()
     cantidad = models.PositiveBigIntegerField(default=0)
-    registrados = models.ManyToManyField(User)
+    registrados = models.ManyToManyField(User, related_name='eventos_registrados', blank=True)
 
     def __str__(self):
         return self.titulo
