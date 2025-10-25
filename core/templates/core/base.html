@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Events</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body class="bg-black">
+    <header class="fixed top-0 left-0 w-full z-50">
+        <nav class="bg-white h-[10vh] flex-row items-center md:flex">
+            <!-- Logo y boton desplegable -->
+            <div class="flex items-center justify-between px-[8vw]">
+                <img src="{% static 'core/logo.png' %}" alt="" class="max-h-[10vh]  object-fill">
+                <ion-icon name="menu-sharp" onclick="desplegarMenu(this)" class="text-5xl  hover:scale-115 transition-transform md:hidden"></ion-icon>
+            
+            </div>
+            <hr>
+            <!-- opciones del menu -->
+            <ul id="menu" class="text-black bg-white px-[8vw] static w-full left-0 opacity-0 md:flex md:items-center md:justify-end md:gap-[5vw]
+            md:px-[5vw] md:opacity-100 pointer-events-none md:pointer-events-auto">
+                <li class="pl-[3vw] pt-[2vh] md:pt-0  md:px-[3vw]">
+                    <a href="" class="text-lg hover:text-orange-600 duration-200 ">Principal</a>
+                </li>
+                <li class="text-lg pl-[3vw] pt-[1vh] md:pt-0 md:pl-0 md:px-[3vw]">
+                    <a href="" class=" hover:text-orange-600 duration-200">Eventos</a>
+                </li>
+                <li class="text-lg pl-[3vw] pt-[1vh] md:pt-0 md:pl-0 md:px-[3vw]">
+                    <a href="" class=" hover:text-orange-600 duration-200">Iniciar sesión</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+    {% block content %}
+    {% endblock %}
+    </main>
+
+    <script src="{% static 'core/menuDesplegable.js' %}"></script>
+</body>
+</html>
