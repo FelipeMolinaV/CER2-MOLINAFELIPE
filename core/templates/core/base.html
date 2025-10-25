@@ -14,14 +14,17 @@
             <img src="{% static 'core/base/logo.png' %}" alt="" class="h-[10vh] object-cover">
             <ul class="flex flex-row gap-[7vw]">
                 <li class="text-xl hover:text-orange-500 duration-100">
-                    <a href="">Principal</a>
+                    <a href="{% url 'principal' %}">Principal</a>
                 </li>
                 <li class="text-xl hover:text-orange-500 duration-100">
-                    <a href="">Eventos</a>
+                    <a href="#seccion-eventos">Eventos</a>
                 </li>
+                {% if user.is_anonymous %}
                 <li class="text-xl hover:text-orange-500 duration-100">
-                    <a href="">Iniciar sesión</a>
+                    <a href="{% url 'crear_cuenta' %}">Crear cuenta</a>
                 </li>
+                {% endif %}
+                
             </ul>
         </nav>
     </header>
