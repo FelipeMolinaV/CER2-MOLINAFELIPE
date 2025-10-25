@@ -66,9 +66,10 @@ def registrar_evento(request, id):
     return redirect('informacion_evento', id=id)
 
 def eliminar_registro_evento(request, id):
+
     evento = Evento.objects.get(id=id)
     evento.registrados.remove(request.user)
-    return redirect('informacion_evento', id=id)
+    return redirect(request.META.get('HTTP_REFERER', '/'), id=id)
 
 def cuenta(request):
 
@@ -92,5 +93,6 @@ def cuenta(request):
         
     return render(request, 'core/cuenta.html', {
         'usuario':request.user,
+        'eventos':request.user.eventos_registrados.order_by('fecha'),
         'estado_actualizar_usuario':estado_actualizar_usuario,
     })
