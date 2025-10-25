@@ -17,11 +17,14 @@
                     <a href="{% url 'principal' %}">Principal</a>
                 </li>
                 <li class="text-xl hover:text-orange-500 duration-100">
-                    <a href="#seccion-eventos">Eventos</a>
+                    <a href="{% url 'principal' %}#seccion-eventos">Eventos</a>
                 </li>
                 {% if user.is_anonymous %}
                 {% endif %}
                 {% if user.is_authenticated %}
+                    <li class="text-xl hover:text-orange-500 duration-100">
+                        <a href="{% url 'cuenta' %}">Cuenta</a>
+                    </li>
                     <li class="text-xl hover:text-orange-500 duration-100">
                         <a href="{% url 'cerrar_sesion' %}">Cerrar sesion</a>
                     </li>

@@ -64,3 +64,33 @@ def registrar_evento(request, id):
     evento = Evento.objects.get(id=id)
     evento.registrados.add(request.user)
     return redirect('informacion_evento', id=id)
+
+def eliminar_registro_evento(request, id):
+    evento = Evento.objects.get(id=id)
+    evento.registrados.remove(request.user)
+    return redirect('informacion_evento', id=id)
+
+def cuenta(request):
+
+    estado_actualizar_usuario = True
+
+    if request.method == 'POST':
+
+        usuario = request.user
+        if User.objects.filter(username=request.POST['nombre-usuario']).exists():
+            estado_actualizar_usuario = False
+        else:
+            usuario.username = request.POST['nombre-usuario'] if request.POST             ['nombre-usuario'] != "" else usuario.username
+
+            usuario.email = request.POST['correo'] if request.POST['correo'] != "" else usuario.email
+
+            usuario.first_name = request.POST['nombre'] if request.POST['nombre'] != "" else usuario.first_name
+
+            usuario.last_name = request.POST['apellido'] if request.POST['apellido'] != "" else usuario.last_name
+            
+            usuario.save()
+        
+    return render(request, 'core/cuenta.html', {
+        'usuario':request.user,
+        'estado_actualizar_usuario':estado_actualizar_usuario,
+    })
