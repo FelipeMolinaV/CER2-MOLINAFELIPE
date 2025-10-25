@@ -6,6 +6,11 @@ from .models import Evento, ImagenEvento
 
 def principal(request):
     return render(request, 'core/principal.html', {
+        'evento' : Evento.objects.order_by('?').first(),
+    })
+
+def eventos(request):
+    return render(request, 'core/eventos.html', {
         'datos_tarjeta': list(Evento.objects.values('id', 'titulo', 'imagenPrincipal', 'lugar')),
         'datos_evento': Evento.objects.all(),
     })

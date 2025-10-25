@@ -17,7 +17,7 @@
                     <a href="{% url 'principal' %}">Principal</a>
                 </li>
                 <li class="text-xl hover:text-orange-500 duration-100">
-                    <a href="{% url 'principal' %}#seccion-eventos">Eventos</a>
+                    <a href="{% url 'eventos' %}">Eventos</a>
                 </li>
                 {% if user.is_authenticated %}
                     {% if not user.is_staff and not user.is_superuser %}
