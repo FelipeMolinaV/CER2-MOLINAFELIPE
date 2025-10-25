@@ -40,12 +40,12 @@ function actualizarTarjeta(tarjeta, datos){
 
     // imagen
     const imagen = tarjeta.querySelectorAll('img')[0]
-    imagen.src = datos.img
+    imagen.src = datos.imagenPrincipal
     imagen.classList = "object-cover opacity-85 absolute inset-0 h-full w-full bottom-0 hover:contrast-85 h)over:opacity-100 z-10 hover:scale-105 transition-transform"
 
     // ubicacion
     const ubicacion = tarjeta.querySelectorAll('h2')[0]
-    ubicacion.textContent = datos.ubicacion
+    ubicacion.textContent = datos.lugar
     ubicacion.classList = "absolute bottom-2 right-3 z-50 text-white font-bold drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]"
 
 

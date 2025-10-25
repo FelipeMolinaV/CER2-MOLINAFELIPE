@@ -1,16 +1,23 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class ImagenEvento(models.Model):
-    url = models.URLField(max_length=300)
 
 class Evento(models.Model):
     titulo = models.CharField(max_length=35)
     fecha = models.DateTimeField()
     lugar = models.CharField(max_length=35)
-    url = models.ManyToManyField(ImagenEvento)
+    imagenPrincipal = models.URLField(max_length=300, default="")
     valor = models.PositiveIntegerField()
-    valor = models.PositiveBigIntegerField()
+    cantidad = models.PositiveBigIntegerField(default=0)
     registrados = models.ManyToManyField(User)
 
+    def __str__(self):
+        return self.titulo
+    
+class ImagenEvento(models.Model):
+    url = models.URLField(max_length=300)
+    evento = models.ForeignKey(Evento, on_delete=models.CASCADE, null=False)
+
+    def __str__(self):
+        return self.url
 
