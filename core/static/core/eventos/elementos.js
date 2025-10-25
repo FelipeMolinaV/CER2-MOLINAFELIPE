@@ -31,7 +31,9 @@ function crearTarjeta(espacio){
 }
 
 function actualizarTarjeta(tarjeta, datos){
-    //tarjeta.href = urlPrueba.replace("0", datos.id)
+    
+    // tarjeta
+    tarjeta.href = urlEvento.replace("0", datos.id)
 
     // Titulo
     const titulo = tarjeta.querySelectorAll('h1')[0]
