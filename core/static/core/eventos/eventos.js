@@ -119,36 +119,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
     datos = [
         {
-            'titulo':"Titulo",
-            'id':0
+            'titulo':"Orquesta Andina",
+            'id':0,
+            'img':"https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+            'ubicacion':"Valparaiso"
+        },
+        {
+            'titulo':"Esta es el concierto de Chile",
+            'id':1,
+            'img':"https://media.admagazine.com/photos/618a5f0d51ab72df0a764019/master/w_1600,c_limit/88529.jpg",
+            'ubicacion':'Santiago de chile',
         },
         {
             'titulo':"Titulo",
-            'id':1
+            'id':2,
+            'img':"https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
         },
         {
             'titulo':"Titulo",
-            'id':2
+            'id':3,
+            'img':"https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
         },
         {
             'titulo':"Titulo",
-            'id':3
+            'id':4,
+            'img':"https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
         },
         {
             'titulo':"Titulo",
-            'id':4
+            'id':5,
+            'img':"https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
         },
         {
             'titulo':"Titulo",
-            'id':5
+            'id':6,
+            'img':"https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
         },
         {
             'titulo':"Titulo",
-            'id':6
-        },
-        {
-            'titulo':"Titulo",
-            'id':7
+            'id':7,
+            'img':"https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
         },
     ]
 
