@@ -38,22 +38,24 @@
                 <h1 class="text-2xl text-center font-bold my-auto">No tienes ningun evento registrado.</h1>
             {% else %}
                 {% for evento in eventos %}
-                    <article class="w-full max-h-[30vh] rounded-sm bg-zinc-900 flex flex-row gap-2 items-start text-white px-[1vw] py-[2vh]  duration-150 relative">
-                        <img src="{{evento.imagenPrincipal}}" alt="" class="h-[20vh] w-[20vw] object-cover border-slate-50">
-                        <div class="flex flex-col w-[20vw]">
-                            <div>
-                                <h1 class="">{{evento.titulo}}</h1>
-                                <h1>{{evento.lugar}} - {{evento.fecha}}</h1>
-                                <h1>{{evento.valor}} CL</h1>
+                    <a href="{% url 'informacion_evento' evento.id %}">
+                        <article class="max-h-[30vh] rounded-sm bg-zinc-900 flex flex-row gap-2 items-start text-white px-[1vw] py-[2vh]  duration-150 relative">
+                            <img src="{{evento.imagenPrincipal}}" alt="" class="h-[20vh] w-[17vw] object-cover border-slate-50">
+                            <div class="flex flex-col w-[20vw]">
+                                <div>
+                                    <h1 class="">{{evento.titulo}}</h1>
+                                    <h1>{{evento.lugar}} - {{evento.fecha}}</h1>
+                                    <h1>{{evento.valor}} CL</h1>
+                                </div>
+                                    
+                                <a href="{% url 'eliminar_registro_evento' evento.id %}">
+                                    <button class="absolute text-black h-[5vh] w-[10vw] bg-white rounded bottom-4 right-3 hover:cursor-pointer hover:text-orange-500">
+                                        Eliminar evento
+                                    </button>
+                                </a>
                             </div>
-                            
-                            <a href="{% url 'eliminar_registro_evento' evento.id %}">
-                                <button class="absolute text-black h-[5vh] w-[10vw] bg-white rounded bottom-4 right-3 hover:cursor-pointer hover:text-orange-500">
-                                Eliminar evento
-                            </button>
-                            </a>
-                        </div>
-                    </article>
+                        </article>
+                    </a>
                 {% endfor %}
             {% endif %}
        </div>

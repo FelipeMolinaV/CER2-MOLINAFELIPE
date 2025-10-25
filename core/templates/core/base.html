@@ -19,24 +19,21 @@
                 <li class="text-xl hover:text-orange-500 duration-100">
                     <a href="{% url 'principal' %}#seccion-eventos">Eventos</a>
                 </li>
-                {% if user.is_anonymous %}
-                {% endif %}
                 {% if user.is_authenticated %}
-                    <li class="text-xl hover:text-orange-500 duration-100">
-                        <a href="{% url 'cuenta' %}">Cuenta</a>
-                    </li>
-                    <li class="text-xl hover:text-orange-500 duration-100">
-                        <a href="{% url 'cerrar_sesion' %}">Cerrar sesion</a>
-                    </li>
                     {% if not user.is_staff and not user.is_superuser %}
-
+                        <li class="text-xl hover:text-orange-500 duration-100">
+                            <a href="{% url 'cuenta' %}">Cuenta</a>
+                        </li>
+                        
                     {% endif %}
+                    <li class="text-xl hover:text-orange-500 duration-100">
+                            <a href="{% url 'cerrar_sesion' %}">Cerrar sesion</a>
+                        </li>
                 {% else %}
                     <li class="text-xl hover:text-orange-500 duration-100">
                         <a href="{% url 'iniciar_sesion' %}">Iniciar sesión</a>
                     </li>
                 {% endif %}
-                
             </ul>
         </nav>
     </header>
