@@ -49,19 +49,27 @@ def cerrar_sesion(request):
     return redirect('principal')
 
 def crear_cuenta(request):
+
     if request.method == "POST":
 
         nombre_usuario = request.POST['nombre']
-        correo = request.POST['correo']
-        contraseña = request.POST['contraseña']
-        
-        user = User.objects.create_user(username=nombre_usuario, email=correo, password=contraseña)
-        user.save()
 
-        usuario = authenticate(username=nombre_usuario, password=contraseña)
-        if usuario is not None:
-            login(request, usuario)
-            return redirect('principal')
+        if User.objects.filter(username=nombre_usuario).exists():
+           return render(request, 'core/crear_cuenta.html', {
+               'error': True,
+           })
+        
+        else:
+            correo = request.POST['correo']
+            contraseña = request.POST['contraseña']
+            
+            user = User.objects.create_user(username=nombre_usuario, email=correo, password=contraseña)
+            user.save()
+
+            usuario = authenticate(username=nombre_usuario, password=contraseña)
+            if usuario is not None:
+                login(request, usuario)
+                return redirect('principal')
     else:  
         return render(request, 'core/crear_cuenta.html', {})
     

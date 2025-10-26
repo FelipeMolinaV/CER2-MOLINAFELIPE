@@ -2,7 +2,7 @@
 {% block content %}
 <section class="h-[90vh] w-full flex flex-col justify-center items-center">
     <div class="bg-white h-[80vh] w-[70vw] flex flex-row gap-1 rounded-sm p-1">
-       <div class=" bg-gray-400 w-[25vw] h-full rounded-sm">
+       <div class=" bg-gray-700 w-[25vw] h-full rounded-sm">
             <form method="POST" class="h-full w-full flex flex-col px-[2vw] py-[5vh] text-white gap-[1vh]">
                 {% csrf_token %}
                 {% if not estado_actualizar_usuario %}
@@ -28,8 +28,8 @@
                     placeholder="{% if usuario.last_name == '' %}Ingrese apellido{%else%}{{usuario.last_name}}{% endif %}" 
                     class=" text-black appearance-none border bg-white h-[6vh] text-lg px-[1vw]">
                 </div>
-                <div class="flex flex-col gap-[1vh]">
-                    <button class="bg-slate-200 h-[8vh] w-[15vw] mx-auto text-black rounded-sm mt-[3vh] hover:scale-105 hover:text-orange-400 duration-150 hover:cursor-pointer">Actualizar datos</button>
+                <div class="mx-auto my-auto">
+                    <button class="bg-white h-[6vh] w-[15vw] mx-auto text-black  mt-[3vh] hover:scale-105 hover:scale-102 hover:text-white duration-150 hover:cursor-pointer hover:bg-orange-400">Actualizar datos</button>
                 </div>
             </form>
        </div>
@@ -39,7 +39,7 @@
             {% else %}
                 {% for evento in eventos %}
                     <a href="{% url 'informacion_evento' evento.id %}">
-                        <article class="max-h-[30vh] rounded-sm bg-zinc-900 flex flex-row gap-2 items-start text-white px-[1vw] py-[2vh]  duration-150 relative">
+                        <article class="max-h-[30vh] rounded-sm bg-zinc-900 flex flex-row gap-2 items-start text-white px-[1vw] py-[2vh]  duration-150 relative hover:contrast-75">
                             <img src="{{evento.imagenPrincipal}}" alt="" class="h-[20vh] w-[17vw] object-cover border-slate-50">
                             <div class="flex flex-col w-[20vw]">
                                 <div>
@@ -49,7 +49,7 @@
                                 </div>
                                     
                                 <a href="{% url 'eliminar_registro_evento' evento.id %}">
-                                    <button class="absolute text-black h-[5vh] w-[10vw] bg-white rounded bottom-4 right-3 hover:cursor-pointer hover:text-orange-500">
+                                    <button class="absolute text-black h-[5vh] w-[10vw] bg-white bottom-4 right-3  hover:scale-102 hover:text-white duration-150 hover:cursor-pointer hover:bg-orange-400">
                                         Eliminar evento
                                     </button>
                                 </a>

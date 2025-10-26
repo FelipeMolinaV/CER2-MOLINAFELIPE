@@ -1,51 +1,57 @@
 {% extends 'core/base.html' %}
 {% block content %}
-<section class="text-white h-[90vh]">
-    <h1 class="text-4xl text-center mt-[5vh]">{{evento.titulo}}</h1>
-    <div class="flex flex-row px-[10vw] py-[10vh] items-start gap-[6vw] ">
-        <div class="flex flex-col items-center justify-center gap-[3vh]">
+<section class="text-white h-[80vh]">
+    <h1 class="text-4xl text-center mt-[10vh] font-bold">
+        {{evento.titulo}}
+    </h1>
+    <div class="flex flex-row px-[10vw] py-[7vh] items-start gap-[3vw] ">
+        <div class="flex flex-col items-center justify-center">
             <img src="{{evento.imagenPrincipal}}" alt="" class="h-[45vh] w-[35vw] object-cover border shadow-lg shadow-white">
         </div>
-        <div class="flex flex-col items-start gap-[2vh] w-[40vw]">
-            <div class="flex flex-col gap-[5vh]">
-                <p>{{evento.descripcion}}</p>
-                <div>
+        <div class="flex flex-col items-start gap-[1vh] w-[45vw] border-1 p-3">
+            <div class="flex flex-col gap-[4vh] text-balance font-thin text-base">
+                <p class="">{{evento.descripcion}}</p>
+                <div class="">
                     <p class="mt-[1vh]">Lugar: {{evento.lugar}}</p>
+                    <p class="mt-[1vh]">Fecha: {{evento.fecha}}</p>
                     <p class="mt-[1vh]">Cupos disponibles: {{cupos}}</p>
-                    <p class="mt-[1vh]">Precio: {{evento.valor}}</p>
+                    <p class="mt-[1vh] mb-[1vh]">
+                        {% if evento.valor == 0 %}
+                            Entrada liberada
+                        {% else %}
+                            Precio  : {{evento.valor}} CLP
+                        {% endif %}
+                        
+                    </p>
                 </div>
             </div>
             
-            <!-- Comportamiento segun si es anonimo, autenticado, staff o admin-->
-            
-            <!-- Anonimo -> Crear una cuenta para comenzar a registrarse en eventos -->
             {% if user.is_anonymous %}
                 <a href="{% url 'crear_cuenta' %}">
-                    <button class="bg-slate-200 h-[8vh] w-[24vw] text-black rounded-sm mt-[3vh] hover:scale-105 hover:text-orange-400 duration-150 hover:cursor-pointer" type="submit">Crea una cuenta para registrar evento</button>
+                    <button class="bg-white h-[8vh] w-[20vw] text-black  hover:scale-102 hover:text-white duration-150 hover:cursor-pointer hover:bg-orange-400" type="submit">Crea una cuenta para registrar evento</button>
                 </a>
             {% else %}
                 {% if user.is_staff or user.is_superuser %}
                     <a href="{% url 'admin:core_evento_change' evento.id %}">
                         {% csrf_token %}
-                        <button class="bg-slate-200 h-[8vh] w-[15vw] text-black rounded-sm hover:scale-105 hover:text-orange-400 duration-150 hover:cursor-pointer" type="submit">Editar evento</button>
+                        <button class="bg-white h-[7vh] w-[15vw] text-black  hover:scale-102 hover:text-white duration-150 hover:cursor-pointer hover:bg-orange-400" type="submit">Editar evento</button>
                     </a>      
                 {% else %}
                     {% if estado_registro %}
-                        <h1 class="text-2xl font-semibold text-orange-300">Ya estas registado para este evento</h1>
+                        <h1 class="text-xl font-semibold text-orange-400">Ya estas registado para este evento</h1>
                         <form method="POST" action="{% url 'eliminar_registro_evento' evento.id %}">
                             {% csrf_token %}
-                            <button class="bg-slate-200 h-[8vh] w-[15vw] text-black rounded-sm mt-[3vh] hover:scale-105 hover:text-orange-400 duration-150 hover:cursor-pointer" type="submit">Eliminar registro</button>
+                            <button class="bg-white h-[7vh] w-[15vw] text-black  hover:scale-102 hover:text-white duration-150 hover:cursor-pointer hover:bg-orange-400" type="submit">Eliminar registro</button>
                         </form>
                     {% else %}
                         <form method="POST" action="{% url 'registrar_evento' evento.id %}">
                             {% csrf_token %}
-                            <button class="bg-slate-200 h-[8vh] w-[15vw] text-black rounded-sm mt-[3vh] hover:scale-105 hover:text-orange-400 duration-150 hover:cursor-pointer" type="submit">Registrar evento</button>
+                            <button class="bg-white h-[7vh] w-[15vw] text-black  hover:scale-102 hover:text-white duration-150 hover:cursor-pointer hover:bg-orange-400" type="submit">Registrar evento</button>
                         </form>
                     {% endif %}  
                 {% endif %}
             {% endif %}
         </div>
     </div>
-    
 </section>
 {% endblock %}
