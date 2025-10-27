@@ -3,43 +3,43 @@
 <section class="min-h-[90vh] md:h-[90vh] w-full flex flex-col justify-center items-center">
     <div class="bg-white min-h-[80vh] md:h-[80vh] w-[80vw] md:w-[65vw] flex flex-col md:flex-row gap-2 md:gap-1 rounded-sm p-1 mt-[5vh] md:mt-0 mb-[5vh] md:mb-0">
        <div class=" bg-gray-700 w-full md:w-[25vw] h-full">
-            <form method="POST" class="h-full w-full flex flex-col px-[2vw] py-[5vh] text-white gap-[1vh]">
+            <form method="POST" class="h-full w-full flex flex-col px-[2vw] py-[5vh] text-white gap-[3vh]">
                 {% csrf_token %}
                 {% if not estado_actualizar_usuario %}
                 <h1 class="text-center text-red-200 font-bold">El nombre de usuario esta ocupado.</h1>
                 {% endif %}
-                <div class="flex flex-col gap-[2vh]">
+                <div class="flex flex-col gap-[1vh]">
                     <label for="nombre-usuario">Nombre usuario:</label>
                     <input name="nombre-usuario" type="text" placeholder="{{usuario.username}}" class=" text-black appearance-none border bg-white h-[6vh] text-lg px-[1vw]">
                 </div>
-                <div class="flex flex-col gap-[2vh]">
+                <div class="flex flex-col gap-[1vh]">
                     <label for="Correo electronico">Correo Electronico:</label>
                     <input name="correo" type="text" placeholder="{{usuario.email}}" class=" text-black appearance-none border bg-white h-[6vh] text-lg px-[1vw]">
                 </div>
-                <div class="flex flex-col gap-[2vh]">
+                <div class="flex flex-col gap-[1vh]">
                     <label for="Primer nombre">Primer nombre:</label>
                     <input name="nombre" type="text" 
                     placeholder="{% if usuario.first_name == '' %}Ingrese primer nombre{%else%}{{usuario.first_name}}{% endif %}" 
                     class=" text-black appearance-none border bg-white h-[6vh] text-lg px-[1vw]">
                 </div>
-                <div class="flex flex-col gap-[2vh]">
+                <div class="flex flex-col gap-[1vh]">
                     <label for="apellido">Apellido:</label>
                     <input name="apellido" type="text" 
                     placeholder="{% if usuario.last_name == '' %}Ingrese apellido{%else%}{{usuario.last_name}}{% endif %}" 
                     class=" text-black appearance-none border bg-white h-[6vh] text-lg px-[1vw]">
                 </div>
                 <div class="mx-auto my-auto">
-                    <button class="bg-white h-[6vh] w-[40vw] md:w-[15vw] mx-auto text-black  mt-[3vh] hover:scale-105 hover:scale-102 hover:text-white duration-150 hover:cursor-pointer hover:bg-orange-400">Actualizar datos</button>
+                    <button class="bg-white h-[8vh] w-[40vw] md:w-[15vw] mx-auto text-black  mt-[3vh] hover:scale-105 hover:scale-102 hover:text-white duration-150 hover:cursor-pointer hover:bg-orange-400">Actualizar datos</button>
                 </div>
             </form>
        </div>
        <div class="bg-gray-400 w-full md:w-[45vw] px-1  h-full overflow-y-auto flex flex-col gap-1">
             {% if usuario.eventos_registrados.count == 0 %}
-                <h1 class="text-2xl text-center font-bold my-auto">No tienes ningun evento registrado.</h1>
+                <h1 class="text-2xl text-center font-semibold my-3">No tienes ningun evento registrado.</h1>
             {% else %}
                 {% for evento in eventos %}
                     <a href="{% url 'informacion_evento' evento.id %}">
-                        <article class="h-[20vh] md:h-[30vh]  bg-zinc-900 flex flex-row gap-2 items-start text-white px-[1vw] py-[2vh]  duration-150 relative hover:contrast-75">
+                        <article class="h-[25vh] md:h-[30vh]  bg-zinc-900 flex flex-row gap-2 items-start text-white px-[1vw] py-[2vh]  duration-150 relative hover:contrast-75">
                             <img src="{{evento.imagenPrincipal}}" alt="" class="h-[0vh] w-[0vw] md:h-[20vh] md:w-[17vw] md:object-cover">
                             <div class="flex flex-col w-[40vw] md:w-[20vw]">
                                 <div>
