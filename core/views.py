@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from .models import Evento, ImagenEvento
+from .models import Evento
 
 def principal(request):
     return render(request, 'core/principal.html', {
