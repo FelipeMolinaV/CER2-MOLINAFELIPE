@@ -1,0 +1,184 @@
+[
+  {
+    "model": "core.evento",
+    "fields": {
+      "titulo": "Festival de Cine Chileno",
+      "fecha": "2025-11-10T19:00:00Z",
+      "lugar": "Valparaíso",
+      "imagenPrincipal": "https://fecich.cl/wp-content/uploads/2025/09/Nota-web-convocatoria-Fecich18.jpg",
+      "valor": 7000,
+      "cantidad": 120,
+      "registrados": [],
+      "descripcion": "Un evento que reúne lo mejor del cine chileno independiente, incluyendo cortometrajes y largometrajes de directores emergentes. Habrá proyecciones, charlas con cineastas y espacios de debate sobre la industria cinematográfica local."
+    }
+  },
+  {
+    "model": "core.evento",
+    "fields": {
+      "titulo": "Exposición de Arte Mapuche",
+      "fecha": "2025-11-14T16:00:00Z",
+      "lugar": "Temuco",
+      "imagenPrincipal": "https://www.cultura.gob.ar/media/uploads/29496794036_0e42f6b655_k.jpg",
+      "valor": 5000,
+      "cantidad": 80,
+      "registrados": [],
+      "descripcion": "Exposición que muestra la riqueza cultural y artística del pueblo mapuche, con obras que van desde artesanía tradicional hasta arte contemporáneo. Ideal para aprender sobre simbolismos y técnicas ancestrales."
+    }
+  },
+  {
+    "model": "core.evento",
+    "fields": {
+      "titulo": "Concierto de Jazz en el Parque",
+      "fecha": "2025-11-20T18:00:00Z",
+      "lugar": "Santiago",
+      "imagenPrincipal": "https://www.latercera.com/resizer/v2/ZNM6ITGF25E7XMGNIZ5A66UW2M.jpg?auth=03c018e9c27c32f10208b70a0e4f2cc4c01f6fe10234cb12124a4ab7d92753c5&smart=true&width=990&height=557&quality=70",
+      "valor": 10000,
+      "cantidad": 200,
+      "registrados": [],
+      "descripcion": "Disfruta de una tarde de jazz al aire libre en un entorno natural. El concierto contará con reconocidos músicos nacionales e internacionales y ofrecerá una experiencia musical única con la mejor calidad de sonido y ambientación."
+    }
+  },
+  {
+    "model": "core.evento",
+    "fields": {
+      "titulo": "Taller de Fotografía Urbana",
+      "fecha": "2025-11-25T15:00:00Z",
+      "lugar": "Valparaíso",
+      "imagenPrincipal": "https://cdn1.matadornetwork.com/blogs/2/2015/07/Valpo06.jpg",
+      "valor": 8000,
+      "cantidad": 50,
+      "registrados": [],
+      "descripcion": "Taller práctico en el que aprenderás técnicas de fotografía urbana recorriendo las calles de Valparaíso. Ideal para fotógrafos aficionados y profesionales que buscan inspiración y mejorar su mirada artística."
+    }
+  },
+  {
+    "model": "core.evento",
+    "fields": {
+      "titulo": "Feria del Libro Independiente",
+      "fecha": "2025-12-01T11:00:00Z",
+      "lugar": "Concepción",
+      "imagenPrincipal": "https://laserenaonline.cl/wp-content/uploads/2024/04/feria-del-libro-independiente.webp",
+      "valor": 0,
+      "cantidad": 300,
+      "registrados": [],
+      "descripcion": "Feria gratuita que reúne editoriales independientes y autores locales. Podrás descubrir libros únicos, participar en charlas, talleres y conocer de cerca el trabajo creativo de escritores emergentes y consagrados."
+    }
+  },
+  {
+    "model": "core.evento",
+    "fields": {
+      "titulo": "Festival de Danzas Folclóricas",
+      "fecha": "2025-12-05T20:00:00Z",
+      "lugar": "La Serena",
+      "imagenPrincipal": "http://img.soy-chile.cl/Fotos/2020/01/24/file_20200124174419.jpg",
+      "valor": 6000,
+      "cantidad": 150,
+      "registrados": [],
+      "descripcion": "Un evento que celebra las danzas tradicionales chilenas, reuniendo grupos folclóricos de todo el país. Los asistentes podrán disfrutar de bailes típicos, música en vivo y aprender sobre la diversidad cultural de Chile."
+    }
+  },
+  {
+    "model": "core.evento",
+    "fields": {
+      "titulo": "Charla sobre Energías Renovables",
+      "fecha": "2025-12-08T10:30:00Z",
+      "lugar": "Antofagasta",
+      "imagenPrincipal": "https://www.claseejecutiva.uc.cl/wp-content/uploads/2017/08/energias-renovables-1-1024x800.jpg",
+      "valor": 0,
+      "cantidad": 100,
+      "registrados": [],
+      "descripcion": "Charla educativa enfocada en energías limpias y sostenibilidad. Aprenderás sobre tecnologías solares, eólicas y otras alternativas renovables, su implementación en Chile y su impacto en la reducción de emisiones."
+    }
+  },
+  {
+    "model": "core.evento",
+    "fields": {
+      "titulo": "Encuentro de Teatro Universitario",
+      "fecha": "2025-12-12T19:30:00Z",
+      "lugar": "Santiago",
+      "imagenPrincipal": "https://www.elcalbucano.cl/wp-content/uploads/2024/01/IMG_1757-1-scaled.jpg",
+      "valor": 9000,
+      "cantidad": 90,
+      "registrados": [],
+      "descripcion": "Muestra de obras teatrales creadas por estudiantes universitarios de distintas instituciones. Se fomentará el intercambio cultural y la creatividad, permitiendo al público disfrutar de propuestas innovadoras y originales."
+    }
+  },
+  {
+    "model": "core.evento",
+    "fields": {
+      "titulo": "Taller de Escritura Creativa",
+      "fecha": "2025-12-15T14:00:00Z",
+      "lugar": "Puerto Montt",
+      "imagenPrincipal": "https://www.rededuca.net/sites/default/files/2024-05/Dise%C3%B1o%20sin%20t%C3%ADtulo%20%2813%29.jpg",
+      "valor": 4000,
+      "cantidad": 40,
+      "registrados": [],
+      "descripcion": "Taller enfocado en desarrollar habilidades de escritura narrativa y poética. Los participantes aprenderán técnicas de creatividad, estructuración de historias y recursos literarios aplicables a diferentes géneros."
+    }
+  },
+  {
+    "model": "core.evento",
+    "fields": {
+      "titulo": "Festival de Comidas Típicas",
+      "fecha": "2025-12-20T12:00:00Z",
+      "lugar": "Rancagua",
+      "imagenPrincipal": "https://cdn.agroempresario.com/images/posts/2349df9bf330d8920f11a60a5c05ed71d9d5a168b5cd6e01_840.jpg",
+      "valor": 3000,
+      "cantidad": 250,
+      "registrados": [],
+      "descripcion": "Festival gastronómico que permite degustar una amplia variedad de comidas típicas chilenas. Incluye demostraciones culinarias, talleres de cocina y actividades para toda la familia."
+    }
+  },
+  {
+    "model": "core.evento",
+    "fields": {
+      "titulo": "Seminario de Historia del Arte Chileno",
+      "fecha": "2026-01-10T17:00:00Z",
+      "lugar": "Santiago",
+      "imagenPrincipal": "https://red-cultural.cl/wp-content/uploads/elementor/thumbs/lira-p6oftes769xihhoi6lsqlhvs0lq3m0fcb1fllmniq0.jpg",
+      "valor": 8500,
+      "cantidad": 60,
+      "registrados": [],
+      "descripcion": "Seminario que aborda la evolución del arte chileno desde la época colonial hasta la contemporaneidad, explorando sus principales movimientos, artistas influyentes y el contexto histórico que los originó."
+    }
+  },
+  {
+    "model": "core.evento",
+    "fields": {
+      "titulo": "Muestra de Cine Documental Ambiental",
+      "fecha": "2026-01-20T19:00:00Z",
+      "lugar": "Valparaíso",
+      "imagenPrincipal": "https://verdesdigitales.com/wp-content/uploads/2016/10/documentales-medio-ambiente.jpg",
+      "valor": 5000,
+      "cantidad": 70,
+      "registrados": [],
+      "descripcion": "Proyección de documentales que abordan temáticas ambientales y sostenibilidad. Incluye debates y talleres para reflexionar sobre la conservación del medio ambiente y el impacto humano en la naturaleza."
+    }
+  },
+  {
+    "model": "core.evento",
+    "fields": {
+      "titulo": "Festival de Música Clasica",
+      "fecha": "2026-01-28T18:30:00Z",
+      "lugar": "Arica",
+      "imagenPrincipal": "https://www.concierto.cl/wp-content/uploads/2024/04/comienza-ciclo-de-musica-clasica-en-las-condes-1024x576.webp",
+      "valor": 7000,
+      "cantidad": 100,
+      "registrados": [],
+      "descripcion": "Ciclo de conciertos de música clásica con la participación de orquestas, ensambles y solistas de renombre. El festival busca acercar la música clásica a un público amplio y fomentar la apreciación artística."
+    }
+  },
+  {
+    "model": "core.evento",
+    "fields": {
+      "titulo": "Taller de Pintura al Aire Libre",
+      "fecha": "2026-02-05T10:00:00Z",
+      "lugar": "Valdivia",
+      "imagenPrincipal": "https://images.squarespace-cdn.com/content/v1/6426ea98a42d177c5526a5a4/e054751c-d2a6-4a27-9173-61855198ad81/pintar+al+aire+libre+artmuse+plein+air+plenairismo.jpg?format=2500w",
+      "valor": 6000,
+      "cantidad": 30,
+      "registrados": [],
+      "descripcion": "Taller práctico de pintura al aire libre, donde los participantes aprenderán técnicas de pintura al aire libre y plein air. Se inspirará en el paisaje natural de Valdivia, fomentando la creatividad y la observación artística."
+    }
+  }
+]

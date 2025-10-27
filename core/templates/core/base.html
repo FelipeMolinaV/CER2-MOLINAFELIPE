@@ -1,0 +1,61 @@
+{% load static %}
+{{datos_tarjeta|json_script:"datos-tarjeta"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Events</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+</head>
+<body class="bg-black font-thin">
+    <header>
+        <nav class="h-[10vh] bg-white flex flex-col md:flex-row md:items-center md:px-[10vw] md:justify-between">
+            <div class="flex flex-row justify-between items-center px-[10vw] md:px-[0]">
+                <a href="{% url 'principal' %}">
+                    <img src="{% static 'core/base/logo.png' %}" alt="" class="h-[10vh] object-cover hover:cursor-pointer">
+                </a>
+                <ion-icon id="boton_menu" name="menu-outline" onclick="desplegarMenu(this)" 
+                class="text-5xl hover:scale-115 transition-transform md:hidden hover:cursor-pointer"></ion-icon>
+            </div>
+            <ul id="menu" class="static md:w-0 bg-white h-[60vh] md:h-[0] md:min-w-[60vw] border-1 md:bg-transparent md:border-0 flex flex-col md:flex-row  md:items-center md:justify-end gap-5 pt-[1vh] md:pt-0 pl-[10vw] md:pl-0 md:gap-[7vw] z-50 opacity-0 md:opacity-100 pointer-events-none md:pointer-events-auto">
+                <li class="text-xl hover:text-orange-400 duration-100">
+                    <a href="{% url 'principal' %}">Principal</a>
+                </li>
+                <li class="text-xl hover:text-orange-400 duration-100">
+                    <a href="{% url 'eventos' %}">Eventos</a>
+                </li>
+                {% if user.is_authenticated %}
+                    {% if not user.is_staff and not user.is_superuser %}
+                        <li class="text-xl hover:text-orange-400 duration-100">
+                            <a href="{% url 'cuenta' %}">Cuenta</a>
+                        </li>
+                        
+                    {% endif %}
+                    <li class="text-xl hover:text-orange-400 duration-100">
+                            <a href="{% url 'cerrar_sesion' %}">Cerrar sesion</a>
+                        </li>
+                {% else %}
+                    <li class="text-xl hover:text-orange-500 duration-100">
+                        <a href="{% url 'iniciar_sesion' %}">Iniciar sesión</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main class="">
+    {% block content %}
+    {% endblock %}
+    </main>
+
+    <script src="{% static 'core/eventos/eventos.js' %}"></script>
+    <script src="{% static 'core/eventos/elementos.js' %}"></script>
+    <script>
+        const urlEvento = "{% url 'informacion_evento' id=0 %}"
+    </script>
+    <script src="{% static 'core/base/menuDesplegable.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<section class="text-white h-[80vh] relative">
+    <h1 class="text-4xl text-center mt-[10vh] font-bold">
+        {{evento.titulo}}
+    </h1>
+    <div class="flex flex-col md:flex-row px-[10vw] md:px-[15] py-[7vh] items-center md:items-start gap-[8vh] md:gap-[3vw] ">
+        <div class="flex flex-col items-center justify-center">
+            <img src="{{evento.imagenPrincipal}}" alt="" class=" h-[40vh] md:h-[45vh] w-[70vw] md:w-[35vw] object-cover border shadow-lg shadow-white opacity-100">
+        </div>
+        <div class="flex flex-col items-start gap-[1vh] w-[70vw] md:w-[45vw] border-1 py-[2vh] px-[1vw]">
+            <div class="flex flex-col gap-[4vh] text-justify text-balance font-thin">
+                <p class="">{{evento.descripcion}}</p>
+                <div class="">
+                    <p class="mt-[1vh]">Lugar: {{evento.lugar}}</p>
+                    <p class="mt-[1vh]">Fecha: {{evento.fecha}}</p>
+                    <p class="mt-[1vh]">Cupos disponibles: {{cupos}}</p>
+                    <p class="mt-[1vh] mb-[1vh]">
+                        {% if evento.valor == 0 %}
+                            Entrada liberada
+                        {% else %}
+                            Precio  : {{evento.valor}} CLP
+                        {% endif %}
+                        
+                    </p>
+                </div>
+            </div>
+            
+            {% if user.is_anonymous %}
+                <a href="{% url 'crear_cuenta' %}">
+                    <button class="bg-white h-[8vh] w-[40vw] md:w-[25vw] text-black  hover:scale-102 hover:text-white duration-150 hover:cursor-pointer hover:bg-orange-400" type="submit">Crea una cuenta para registrar evento</button>
+                </a>
+            {% else %}
+                {% if user.is_staff or user.is_superuser %}
+                    <a href="{% url 'admin:core_evento_change' evento.id %}">
+                        {% csrf_token %}
+                        <button class="bg-white h-[8vh] w-[40vw] md:w-[15vw] text-black  hover:scale-102 hover:text-white duration-150 hover:cursor-pointer hover:bg-orange-400" type="submit">Editar evento</button>
+                    </a>      
+                {% else %}
+                    {% if estado_registro %}
+                        <h1 class="text-xl font-semibold text-orange-400">Ya estas registado para este evento</h1>
+                        <form method="POST" action="{% url 'eliminar_registro_evento' evento.id %}">
+                            {% csrf_token %}
+                            <button class="bg-white h-[8vh] w-[40vw] md:w-[15vw] text-black  hover:scale-102 hover:text-white duration-150 hover:cursor-pointer hover:bg-orange-400" type="submit">Eliminar registro</button>
+                        </form>
+                    {% else %}
+                        <form method="POST" action="{% url 'registrar_evento' evento.id %}">
+                            {% csrf_token %}
+                            <button class="bg-white h-[8vh] w-[40vw] md:w-[15vw] text-black  hover:scale-102 hover:text-white duration-150 hover:cursor-pointer hover:bg-orange-400" type="submit">Registrar evento</button>
+                        </form>
+                    {% endif %}  
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}
