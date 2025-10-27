@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 {% block content %}
 <section class="h-[90vh] flex flex-row items-center justify-center">
-    <div class="relative h-[75vh] w-[35vw] bg-slate-200 rounded-sm">
+    <div class="relative h-[75vh] w-[70vw] md:w-[30vw] bg-slate-200 rounded-sm">
         <form method="POST" class="absolute inset-2 bg-gray-700 flex flex-col px-[2vw] py-[2vh] text-white gap-[5vh]">
             {% csrf_token %}
             <h1 class="text-center text-red-200 font-bold mb-[-3vh]">
@@ -21,7 +21,7 @@
                 <label for="contraseña">Contraseña:</label>
                 <input name="contraseña" type="password" placeholder="Ingrese contraseña" class=" text-black appearance-none border bg-white h-[6vh] text-lg px-[1vw]">
             </div>
-            <button class="bg-white h-[8vh] w-[15vw] mx-auto text-black mt-[3vh] hover:scale-105 duration-150  hover:scale-102 hover:text-white hover:cursor-pointer hover:bg-orange-400">Crear cuenta</button>
+            <button class="bg-white h-[8vh] w-[40vw] md:w-[15vw] mx-auto text-black mt-[3vh] hover:scale-105 duration-150  hover:scale-102 hover:text-white hover:cursor-pointer hover:bg-orange-400">Crear cuenta</button>
         </form>
     </div>
 </section>
